@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // eslint-disable-next-line
-import { useSpring, animated, interpolate } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 //import PropTypes from 'prop-types';
 
 const Toggle = () => {
@@ -15,7 +15,12 @@ const Toggle = () => {
     <div>
       <animated.h1
         style={{
-          transform: y.interpolate(y => `translate3d(0,${y}px,0)`),
+          transform: y
+            .interpolate({
+              range: [0, 0.25, 0.5, 0.75, 1],
+              output: [0, -25, -50, -100, -50]
+            })
+            .interpolate(y => `translate3d(0,${y}px,0)`),
           color
         }}
       >
