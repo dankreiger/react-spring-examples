@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { animated, useTransition } from 'react-spring';
 
-const Modal = ({ animation, closeModal }) => {
+const Modal = ({ animation, closeModal, pointerEvents }) => {
   return (
-    <div className="modal">
+    <div className="modal" style={{ pointerEvents }}>
       <animated.div style={animation} className="modal-card">
         <button onClick={closeModal}>Close</button>
 
@@ -29,12 +29,17 @@ const ModalWrapper = () => {
       transform: 'translate3d(0,-40px,0)'
     }
   });
+  const pointerEvents = on ? 'all' : 'none';
   return (
     <div>
       {transition.map(
         ({ item, key, props: animation }) =>
           item && (
-            <Modal animation={animation} closeModal={() => toggle(false)} />
+            <Modal
+              pointerEvents={pointerEvents}
+              animation={animation}
+              closeModal={() => toggle(false)}
+            />
           )
       )}
       <button onClick={() => toggle(!on)}>Open</button>
