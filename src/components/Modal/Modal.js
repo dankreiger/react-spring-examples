@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { animated, useTransition } from 'react-spring';
 
 const Modal = ({ animation, closeModal, pointerEvents }) => {
@@ -7,7 +8,7 @@ const Modal = ({ animation, closeModal, pointerEvents }) => {
     setClosing(true);
     closeModal();
   };
-  return (
+  return createPortal(
     <div
       className={`modal ${closing ? 'exiting' : ''}`}
       style={{ pointerEvents }}
@@ -17,7 +18,8 @@ const Modal = ({ animation, closeModal, pointerEvents }) => {
 
         <h1>Modal</h1>
       </animated.div>
-    </div>
+    </div>,
+    document.querySelector('#modal-portal')
   );
 };
 
