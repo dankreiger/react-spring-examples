@@ -5,6 +5,7 @@ import './App.css';
 import Routes from './Routes';
 import Checkout from './components/Checkout/Checkout';
 import Modal from './components/Modal/Modal';
+import Accordion from './components/Accordion/Accordion';
 
 const App = () => {
   const [showRoutesExample, setShowRoutesExample] = useState(false);
@@ -29,7 +30,16 @@ const App = () => {
           Menu
         </button>
       </header>
-      <main>{showRoutesExample ? <Routes /> : <Modal />}</main>
+      <main>
+        {showRoutesExample ? (
+          <Routes />
+        ) : (
+          <>
+            <Modal />
+            <Accordion />{' '}
+          </>
+        )}
+      </main>
       <Checkout isOpen={isNavOpen} />
     </animated.div>
   );
