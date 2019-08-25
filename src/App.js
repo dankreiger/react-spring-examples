@@ -6,6 +6,7 @@ import Routes from './Routes';
 import Checkout from './components/Checkout/Checkout';
 import Modal from './components/Modal/Modal';
 import Accordion from './components/Accordion/Accordion';
+import Waypoints from './components/Waypoints/Waypoints';
 
 const App = () => {
   const [showRoutesExample, setShowRoutesExample] = useState(false);
@@ -36,7 +37,8 @@ const App = () => {
         ) : (
           <>
             <Modal />
-            <Accordion />{' '}
+            <Accordion />
+            <Waypoints />
           </>
         )}
       </main>

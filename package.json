@@ -5,8 +5,10 @@
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-router-dom": "5.0.1",
     "react-scripts": "3.1.1",
     "react-spring": "8.0.27",
+    "react-waypoint": "9.0.2",
     "resize-observer-polyfill": "1.5.1",
     "styled-components": "4.3.2"
   },
