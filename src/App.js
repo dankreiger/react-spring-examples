@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import logo from './logo.svg';
 import './App.css';
-// import Routes from './Routes';
+import Routes from './Routes';
 import Checkout from './components/Checkout/Checkout';
 import Modal from './components/Modal/Modal';
 
 const App = () => {
+  const [showRoutesExample, setShowRoutesExample] = useState(false);
   const [isNavOpen, setNavOpen] = useState(false);
   const fade = useSpring({
     from: {
@@ -17,15 +18,18 @@ const App = () => {
   return (
     <animated.div className="App" style={fade}>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" />{' '}
+        <button
+          onClick={() => setShowRoutesExample(!showRoutesExample)}
+          className="example-button"
+        >
+          Show {showRoutesExample ? 'Modal Example' : 'Routes Example'}
+        </button>
         <button onClick={() => setNavOpen(!isNavOpen)} className="menu-button">
           Menu
         </button>
       </header>
-      <main>
-        <Modal />
-        {/* <Routes /> */}
-      </main>
+      <main>{showRoutesExample ? <Routes /> : <Modal />}</main>
       <Checkout isOpen={isNavOpen} />
     </animated.div>
   );

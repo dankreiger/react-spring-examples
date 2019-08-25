@@ -29,6 +29,7 @@ body {
 
 .App-header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -64,7 +65,10 @@ body {
   border-bottom: solid 4px var(--teal);
 }
 
-.menu-button {
+header .example-button {
+  height: 50px;
+}
+header .menu-button {
   appearance: none;
   color: white;
   font-weight: bold;
@@ -132,6 +136,10 @@ h1 {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  animation: backgroundIn 1s forwards;
+}
+.modal.exiting {
+  animation: backgroundOut 1s forwards;
 }
 
 .modal-card {
@@ -198,6 +206,10 @@ h1 {
   pointer-events: none;
 }
 
+main button {
+  margin-top: 40px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -207,9 +219,20 @@ h1 {
   }
 }
 
-/* main {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-gap: 20px;
-  color: white;
-} */
+@keyframes backgroundIn {
+  from {
+    background: inherit;
+  }
+  to {
+    background: rgba(100, 51, 266, 0.8);
+  }
+}
+
+@keyframes backgroundOut {
+  from {
+    background: rgba(100, 51, 266, 0.8);
+  }
+  to {
+    background: inherit;
+  }
+}

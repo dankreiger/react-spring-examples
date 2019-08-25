@@ -2,10 +2,18 @@ import React, { useState } from 'react';
 import { animated, useTransition } from 'react-spring';
 
 const Modal = ({ animation, closeModal, pointerEvents }) => {
+  const [closing, setClosing] = useState(false);
+  const handleCloseModal = () => {
+    setClosing(true);
+    closeModal();
+  };
   return (
-    <div className="modal" style={{ pointerEvents }}>
+    <div
+      className={`modal ${closing ? 'exiting' : ''}`}
+      style={{ pointerEvents }}
+    >
       <animated.div style={animation} className="modal-card">
-        <button onClick={closeModal}>Close</button>
+        <button onClick={handleCloseModal}>Close</button>
 
         <h1>Modal</h1>
       </animated.div>
@@ -36,6 +44,7 @@ const ModalWrapper = () => {
         ({ item, key, props: animation }) =>
           item && (
             <Modal
+              key={key}
               pointerEvents={pointerEvents}
               animation={animation}
               closeModal={() => toggle(false)}
