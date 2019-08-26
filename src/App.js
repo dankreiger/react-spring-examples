@@ -5,8 +5,13 @@ import './App.css';
 import Routes from './Routes';
 import Checkout from './components/Checkout/Checkout';
 import Modal from './components/Modal/Modal';
-import Accordion from './components/Accordion/Accordion';
-import Waypoints from './components/Waypoints/Waypoints';
+// import Accordion from './components/Accordion/Accordion';
+import Gesture from './components/Gesture/Gesture';
+import Gesture2 from './components/Gesture/Gesture2';
+import Boxes from './components/Boxes/Boxes';
+// import BoxesChain from './components/BoxesChain/BoxesChain';
+import BoxesChain2 from './components/BoxesChain/BoxesChain2';
+//import Waypoints from './components/Waypoints/Waypoints';
 
 const App = () => {
   const [showRoutesExample, setShowRoutesExample] = useState(false);
@@ -37,8 +42,14 @@ const App = () => {
         ) : (
           <>
             <Modal />
-            <Accordion />
-            <Waypoints />
+            {/* <Accordion /> */}
+
+            {/* <Waypoints /> */}
+            <Gesture />
+            <Gesture2 />
+            {/* <BoxesChain /> */}
+            <BoxesChain2 />
+            <Boxes />
           </>
         )}
       </main>

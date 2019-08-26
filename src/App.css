@@ -179,6 +179,10 @@ h1 {
   margin: 0 auto;
 }
 
+.box.no-y {
+  background: var(--red);
+}
+
 .boxes-grid {
   display: grid;
   grid-template-columns: 1fr;
